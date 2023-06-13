@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+    <script src="form.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h2> Form </h2>
+    <div id="error_message"> </div>
+<form id="myform" onsubmit="return validation(event)">
+    <div class="input_field">
+        <input type="text" placeholder="Name" id="name" required>
+    </div>
+   
+    <div class="input_field">
+        <input type="text" placeholder="Phone" id="phone" >
+    </div>
+    <div class="input_field">
+        <input type="text" placeholder="Email" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
+    </div>
+  
+    <div class="input_field">
+        <input type="date"  id="dob" required >
+    </div>
+    <div  class="input_field" >
+        <Label> select your interest</Label><br>
+        <input type="checkbox" value="JS" id="checkbox1" >Javascript<br>
+        <input type="checkbox" value="QA" id="checkbox2" >Testing<br>
+        <input type="checkbox" value="Database" id="checkbox3" >Mysql<br>
+    </div>
+
+  
+    <label> Choose Your Gender</label> <br>
+    <input type="radio" id="option1" name="myOption" value="male " >
+    <label for="option1">Male</label><br>
+    <input type="radio" id="option2" name="myOption" value="female" >
+    <label for="option2">Female</label><br> <br>
+
+
+    <label>select your location</label><br>
+    <select name="city" id="city" class="input_field" required> 
+    <option value="">select city</option>    
+    <option value="Mumbai">Mumbai</option>
+    <option value="Amravati">Amravati</option>
+    <option value="Pune">Pune</option>   
+    </select><br>
+   
+    <div class="btn">
+        <input type="submit" />
+    </div>
+    <!-- <button type=" submit">submit</button>  -->
+    
+    
+</form>  
+<!-- onclick="submit()" -->
+</div>
+</body>
+</html>
