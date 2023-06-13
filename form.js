@@ -68,14 +68,17 @@ function validation(e) {
     return false;
   }
 
-  if (isNaN(phone) || phone.length != 10) {
+ if (phone == '') {
+    text = "Enter number";
+    error_message.innerHTML = text;
+    return false;
+  }
+  else if(isNaN(phone) || phone.length != 10) {
     text = "Enter valid Number";
     error_message.innerHTML = text;
     return false;
   }
-  else{
-    
-  }
+ 
   if (email.indexOf("@") == -1 || email.length < 6) {
     text = "Enter valid Email";
     error_message.innerHTML = text;
