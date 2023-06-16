@@ -1,106 +1,126 @@
 function validation(e) {
-  e.preventDefault()
-  let name = document.getElementById("name");
+  e.preventDefault();
+  let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
   let email = document.getElementById("email").value;
-  let error_message = document.getElementById("error_message");
   let dob = document.getElementById("dob").value;
-  let location = document.getElementById("city").value
-  let text;
-  let checkboxes=document.querySelectorAll('[type="checkbox"]')
+  let location = document.getElementById("city").value;
+  let checkboxes = document.querySelectorAll('[type="checkbox"]');
   let checked = false;
+  let successmsg = document.getElementById("donemsg");
+  let text;
 
-  var form = document.getElementById("myform");
-  var options = form.elements["myOption"];
-  var selectedOption;
+  let form = document.getElementById("myform");
+  let options = form.elements["myOption"];
+  let selectedOption;
   let skills = [];
+
+  let nameerror = document.getElementById("errorname");
+  if (name == "") {
+    text = "Enter  name";
+    nameerror.innerHTML = text;
+
+    return false;
+  }
+
+  if (!name.match(/^[A-Za-z`]/)) {
+    text = "Enter Valid name";
+    nameerror.innerHTML = text;
+    return false;
+  } else {
+    nameerror.innerHTML = "";
+  }
+
+  let phonee = document.getElementById("errorphone");
+  if (phone == "") {
+    text = "Enter number";
+    phonee.innerHTML = text;
+    return false;
+  } else if (isNaN(phone) || phone.length != 10) {
+    text = "Enter valid Number";
+    phonee.innerHTML = text;
+    return false;
+  } else {
+    phonee.innerHTML = "";
+  }
+
+  let emaill = document.getElementById("errormail");
+  if (email == "") {
+    text = "Enter mail id";
+    emaill.innerHTML = text;
+    return false;
+  }
+  if (email.indexOf("@") == -1 || email.length < 6) {
+    text = "Enter valid Email";
+    emaill.innerHTML = text;
+    return false;
+  } else {
+    emaill.innerHTML = "";
+  }
+
+  let dobs = document.getElementById("errordob");
+  if (dob === "") {
+    text = "Enter Date of birth";
+    dobs.innerHTML = text;
+    return false;
+  } else {
+    dobs.innerHTML = "";
+  }
 
   for (var i = 0; i < options.length; i++) {
     if (options[i].checked) {
       selectedOption = options[i].value;
       break;
-    
     }
-   
   }
-
-  if (selectedOption) {
-    console.log("Selected option: " + selectedOption);
-   
+  let gender = document.getElementById("errorgender");
+  if (!selectedOption) {
+    gender.innerHTML = "Enter Gender";
+    return false;
   } else {
-    console.log("No option selected");
-    text = "Select gender";
-    error_message.innerHTML = text;
-    return false
+    gender.innerHTML = "";
   }
 
-
-
+  let interest = document.getElementById("errorskills");
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
       checked = true;
-      skills.push(checkboxes[i].value)
+      skills.push(checkboxes[i].value);
     }
   }
-  
+
   if (!checked) {
     text = "Select Your Skills";
-    error_message.innerHTML = text;
-    return false
+    interest.innerHTML = text;
+    return false;
+  } else {
+    interest.innerHTML = "";
   }
-  console.log("skills",skills);
+
+  let cityloc = document.getElementById("errorcity");
+  if (location === "") {
+    cityloc.innerHTML = "select skills";
+    return false;
+  } else {
+    cityloc.innerHTML = "";
+  }
+
   const data = {
-    name: name.value,
+    name: name,
     phone: phone,
-    gender:selectedOption,
-    skills :skills,
+    gender: selectedOption,
+    skills: skills,
     email: email,
-    location:location,
+    location: location,
     dob: dob,
   };
 
-  console.log(data)
-  error_message.style.padding = "10 px";
+  console.log(data);
+  nameerror.style.padding = "10 px";
 
-  if (name.length < 5) {
-    text = "Enter valid name";
-    error_message.innerHTML = text;
-    return false;
-  }
-
- if (phone == '') {
-    text = "Enter number";
-    error_message.innerHTML = text;
-    return false;
-  }
-  else if(isNaN(phone) || phone.length != 10) {
-    text = "Enter valid Number";
-    error_message.innerHTML = text;
-    return false;
-  }
- 
-  if (email.indexOf("@") == -1 || email.length < 6) {
-    text = "Enter valid Email";
-    error_message.innerHTML = text;
-    return false;
-  }
-  
-  form.reset()
+  form.reset();
   text = "Form Submitted successfully ";
-    error_message.innerHTML = text;
+  successmsg.innerHTML = text;
 
-  //     // return false
-   return true;
-
-//   // alert("Form submitted");
-//   text = "Form Submitted successfully ";
-//     error_message.innerHTML = text;
-//     // return false
-//   return true;
- }
-// function submit() {
-//   // console.log("sdadasd")
-
-// }
-
-
+  return true;
+}
