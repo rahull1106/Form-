@@ -11,53 +11,66 @@
 <body>
     <div class="wrapper">
         <h2> Form </h2>
-    <div id="error_message"> </div>
+    <div > </div>
 <form id="myform" onsubmit="return validation(event)">
+    <div>
+        <p id="donemsg" class="done"> </p><br>
+    </div>
     <div class="input_field">
-        <input type="text" placeholder="Name" id="name" required>
+        <input type="text" placeholder="Name" id="name" >
+        <p  id="errorname" class="error" ></p>
     </div>
    
     <div class="input_field">
         <input type="text" placeholder="Phone" id="phone" >
+        <span id="errorphone" class="error" ></span>
     </div>
     <div class="input_field">
-        <input type="text" placeholder="Email" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
+        <input type="text" placeholder="Email" id="email"   >
+        <span id="errormail" class="error" ></span> <br>
     </div>
   
     <div class="input_field">
-        <input type="date"  id="dob" required >
-    </div>
+        <input type="date"  id="dob"  > <br>
+        <span id="errordob" class="error" ></span>
+    </div><br>
+
+    
+    <label> Choose Your Gender</label> <br>
+    <input type="radio" id="option1" name="myOption" value="male " >
+    <label for="option1">Male</label><br>
+    <input type="radio" id="option2" name="myOption" value="female" >
+    <label for="option2">Female</label><br> 
+    <span id="errorgender" class="error" ></span><br>
+
+
     <div  class="input_field" >
         <Label> select your interest</Label><br>
         <input type="checkbox" value="JS" id="checkbox1" >Javascript<br>
         <input type="checkbox" value="QA" id="checkbox2" >Testing<br>
         <input type="checkbox" value="Database" id="checkbox3" >Mysql<br>
+        <span id="errorskills" class="error"></span>
     </div>
 
   
-    <label> Choose Your Gender</label> <br>
-    <input type="radio" id="option1" name="myOption" value="male " >
-    <label for="option1">Male</label><br>
-    <input type="radio" id="option2" name="myOption" value="female" >
-    <label for="option2">Female</label><br> <br>
 
 
     <label>select your location</label><br>
-    <select name="city" id="city" class="input_field" required> 
+    <select name="city" id="city" class="input_field" > 
     <option value="">select city</option>    
     <option value="Mumbai">Mumbai</option>
     <option value="Amravati">Amravati</option>
     <option value="Pune">Pune</option>   
-    </select><br>
+</select><br>
+<span id="errorcity" class="error"></span><br>
    
     <div class="btn">
         <input type="submit" />
     </div>
-    <!-- <button type=" submit">submit</button>  -->
+    
     
     
 </form>  
-<!-- onclick="submit()" -->
 </div>
 </body>
 </html>
