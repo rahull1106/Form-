@@ -25,17 +25,20 @@ body{
     margin-bottom:  20px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: black;
+    color: rgb(0, 0, 0)
+    
 
 }
 .wrapper .input_field{
     margin-bottom: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .wrapper .input_field input[ type="text"],
 .wrapper textarea{
     width: 100%;
     border: 1px solid #adb908;
     padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .wrapper textarea{
     height: 80px;
@@ -58,7 +61,24 @@ body{
 .wrapper #error_message{
     margin-bottom: 20px;
     padding: 0px;
+    border-color: red;
+    color: red;
     background: #4dfcff;
     text-align: center;
     transition: all 0.5s ease;
 }
+.error{
+    color: red;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    word-spacing: 1px;
+    font-weight: 500;
+    
+}
+.done{
+    color: green;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* label{
+    font-family: cursive;
+} */
